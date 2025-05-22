@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div style={{ padding: '2rem', maxWidth: '100%', margin: 'auto' }}>
-      <h1>📝 Simple Notes</h1>
+      <h1>📝 My Notes</h1>
       <textarea
         value={newNote}
         onChange={e => setNewNote(e.target.value)}
@@ -37,6 +37,7 @@ function App() {
       <ul>
         {notes.map(note => (
           <li key={note.id}>
+            {(new Date(note.createdAt)).toLocaleDateString()} <br />
             {note.text}
             <button onClick={() => deleteNote(note.id)} style={{ marginLeft: '1rem' }}>Delete</button>
           </li>
